@@ -1,9 +1,10 @@
-#!/usr/bin/env python
-# coding: utf-8
 
 # **The only change is that the** `player_chips` **is a *GLOBAL* variable, now.**<br>
 # **This means that everytime the player bets, the total chips will be evaluated from the last game -- whether the player won or lost.**<br><br>
 # **In short, the total chips will be counted like real chips**<br><br>
+
+# In[]:
+# Empty cell
 
 # In[3]:
 
@@ -387,9 +388,10 @@ def show_all(player,dealer):
 
 
 def dealer_wins(players_chips,player,dealer):
-    print("\n=====================")
+    print("\n*******************************************************\n")
+    print("\n--------------------")
     print("THE DEALER WON!!!")
-    print("=====================\n")
+    print("--------------------\n")
         
     print("Player's cards: ")
     player.printCards()
@@ -405,9 +407,10 @@ def dealer_wins(players_chips,player,dealer):
     
     show_all(player,dealer)
     
-        
     print(f"\n\nDealer's total value: {dealer.total_value}")
     print(f"Player's total value: {player.total_value}")
+
+    print("\n*******************************************************\n")
     
     print("\n==========")
     print("GAME OVER!")
@@ -416,10 +419,11 @@ def dealer_wins(players_chips,player,dealer):
 
 
 def dealer_busts(player_chips,player,dealer):
-    print("\n====================================")
+    print("\n*******************************************************\n")
+    print("\n--------------------------")
     print("The dealer was busted!!! ")
     print("THE PLAYER WON!")
-    print("====================================\n")
+    print("-------------------------\n\n")
     
     # print Player's chips before and after one was busted
     print("Before the dealer busted, player's chips:")
@@ -431,7 +435,7 @@ def dealer_busts(player_chips,player,dealer):
     player_chips.printChips()
     
     show_all(player,dealer)
-    
+    print("\n*******************************************************\n")
     
     print("\n==========")
     print("GAME OVER!")
@@ -443,7 +447,8 @@ def dealer_busts(player_chips,player,dealer):
 
 
 def player_busts(player_chips,player,dealer):
-    print("\n\n--------------------")
+    print("\n*******************************************************\n")
+    print("\n--------------------")
     print("Player was busted!!!")
     print("THE DEALER WON!")
     print("--------------------\n\n")
@@ -461,6 +466,7 @@ def player_busts(player_chips,player,dealer):
     player_chips.printChips()
     
     show_all(player,dealer)
+    print("\n*******************************************************\n")
     
     
     print("\n==========")
@@ -471,6 +477,8 @@ def player_busts(player_chips,player,dealer):
 
 players_chips = Chips()
 
+
+# The function that controls the game
 def play_game():
     global players_chips
 
@@ -580,7 +588,7 @@ def play_game():
                 else:
                     pass
 
-
+        print(f"\n\nPlayer's chips total:  ${players_chips.total}\n\n")
         yes_or_no = input("\n\nDo you want to play another game (Y or N)?: ")
 
         if yes_or_no not in ['Y','N']:
@@ -603,7 +611,7 @@ def play_game():
 play_game()
 
 
-print(f"\nPlayer's chips total:  {players_chips.total}")
+print(f"\nPlayer's chips total:  ${players_chips.total}\n\n")
 
 
 
