@@ -1,13 +1,8 @@
+# BlackJack
+# Author: Dharak Koradia
 
-# **The only change is that the** `player_chips` **is a *GLOBAL* variable, now.**<br>
-# **This means that everytime the player bets, the total chips will be evaluated from the last game -- whether the player won or lost.**<br><br>
-# **In short, the total chips will be counted like real chips**<br><br>
 
-# In[]:
-# Empty cell
-
-# In[3]:
-
+# In[1]:
 
 import random
 
@@ -16,8 +11,7 @@ playing = True
 player_busted = False
 
 
-# In[4]:
-
+# In[2]:
 
 suits = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
 ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
@@ -25,8 +19,7 @@ values = {'Two':2, 'Three':3, 'Four':4, 'Five':5, 'Six':6, 'Seven':7, 'Eight':8,
          'Queen':10, 'King':10, 'Ace':1}
 
 
-# In[5]:
-
+# In[3]:
 
 class Card:
     
@@ -40,8 +33,7 @@ class Card:
         return self.rank + " of " + self.suit
 
 
-# In[6]:
-
+# In[4]:
 
 class Deck:
     
@@ -67,17 +59,9 @@ class Deck:
         return self.deck.pop()  # pops the last element in the list
 
 
-# In[7]:
-# new_deck = Deck()
-
-# In[8]:
-# print(new_deck)
-
-
 # ## Hand class
 
-# In[9]:
-
+# In[5]:
 
 class Hand:
     
@@ -108,50 +92,7 @@ class Hand:
         
 
 
-# In[10]:
-#player_hand = Hand()
-
-
-# In[11]:
-#player_hand.add_card(Card("Hearts","Five"))
-
-
-# In[12]:
-#player_hand.value
-
-
-# In[13]:
-#print(player_hand.cards[0])
-
-
-# In[14]:
-#player_hand.total_value
-
-
-# In[15]:
-#player_hand.add_card(Card("Spades","Ace"))
-
-
-# In[16]:
-#player_hand.printCards()
-
-
-# In[17]:
-#player_hand.total_value
-
-
-# In[18]:
-#player_hand.aces = 0
-
-
-# In[19]:
-#player_hand.aces
-
-
-# In[ ]:
-
-# In[20]:
-
+# In[6]:
 
 class Chips:
     
@@ -172,46 +113,7 @@ class Chips:
         print(f"Bet: ${self.bet}")
 
 
-# In[21]:
-#some_chips = Chips()
-
-
-# In[22]:
-#some_chips.printChips()
-
-
-# In[23]:
-#some_chips.bet = 50
-
-
-# In[24]:
-#some_chips.printChips()
-
-
-# In[25]:
-#some_chips.lose_bet()
-
-
-# In[26]:
-#some_chips.printChips()
-
-
-# In[27]:
-#some_chips.win_bet()
-
-
-# In[28]:
-#some_chips.printChips()
-
-
-# In[ ]:
-
-
-
-
-
-# In[29]:
-
+# In[7]:
 
 def take_bet(total_balance):
         
@@ -236,24 +138,7 @@ def take_bet(total_balance):
                 return user_bet
 
 
-# In[30]:
-#chips_obj = Chips()
-
-
-# In[31]:
-#type(chips_obj)
-
-
-# In[32]:
-
-
-#take_bet(chips_obj.total)
-
-
-# [Hand class](http://localhost:8888/notebooks/Documents/PythonCourse-1/Section-11--Milestone_Project_2/BlackJack.ipynb#Hand-class)<br>
-
-# In[33]:
-
+# In[8]:
 
 def hit(deckObj,handObj):
     
@@ -261,39 +146,10 @@ def hit(deckObj,handObj):
     one_card = deckObj.deal_one()
     # add it to the hand (or table)
     handObj.add_card(one_card)
-    
-    '''
-    if handObj.total_value > 21:
-        #print("\nA bust has occurred!\n")
-        #print("The cards that made the bust: ")
-        #handObj.printCards()
-        return False
-    else:
-        return True
-    '''
 
 
-# In[34]:
-#new_deck = Deck()
 
-
-# In[35]:
-#new_player = Hand()
-
-
-# In[36]:
-#new_deck.shuffle()
-
-
-# In[37]:
-#hit(new_deck,new_player)
-
-
-# In[ ]:
-# In[ ]:
-# In[ ]:
-
-# In[38]:
+# In[9]:
 
 def dealer_hitting(deck, dealer):
     
@@ -301,9 +157,7 @@ def dealer_hitting(deck, dealer):
     hit(deck,dealer)
 
 
-# In[ ]:
-# In[39]:
-
+# In[10]:
 
 def hit_or_stand(deckObj, handObj):
     
@@ -343,22 +197,7 @@ def hit_or_stand(deckObj, handObj):
                 continue
 
 
-# In[40]:
-
-
-#new_deck = Deck()
-#new_player = Hand()
-#new_deck.shuffle()
-
-
-# In[41]:
-#hit_or_stand(new_deck,new_player)
-# In[ ]:
-# In[42]:
-# playing
-
-# In[43]:
-
+# In[11]:
 
 # player and dealer - in the arguments - are Hand objects
 def show_some(player,dealer):
@@ -373,7 +212,7 @@ def show_some(player,dealer):
     print("\n")
 
 
-# In[44]:
+# In[12]:
 
 def show_all(player,dealer):
     
@@ -386,6 +225,7 @@ def show_all(player,dealer):
     print(f"\nDealer's total value: {dealer.total_value}\n\n")
 
 
+#  In[13]:
 
 def dealer_wins(players_chips,player,dealer):
     print("\n*******************************************************\n")
@@ -417,6 +257,7 @@ def dealer_wins(players_chips,player,dealer):
     print("==========\n\n\n")
 
 
+#  In[14]:
 
 def dealer_busts(player_chips,player,dealer):
     print("\n*******************************************************\n")
@@ -443,8 +284,7 @@ def dealer_busts(player_chips,player,dealer):
     
 
 
-# In[47]:
-
+# In[15]:
 
 def player_busts(player_chips,player,dealer):
     print("\n*******************************************************\n")
@@ -474,6 +314,8 @@ def player_busts(player_chips,player,dealer):
     print("==========\n\n\n")
 
 
+
+#  In[16]:
 
 players_chips = Chips()
 
@@ -553,7 +395,9 @@ def play_game():
         if player_busted == False:
 
             # Show all cards
-            print("\n\nAll cards are shown.\n\n")
+            print("\n\n----------------------")
+            print("All cards are shown.")
+            print("----------------------\n\n")
             show_all(player,dealer)
 
 
@@ -612,8 +456,3 @@ play_game()
 
 
 print(f"\nPlayer's chips total:  ${players_chips.total}\n\n")
-
-
-
-
-
